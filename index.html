@@ -86,8 +86,8 @@
         setInterval(function() { updateTimeDate(); }, 1000);
         
         weatherCheck();
-        setInterval(function() { updateWeather(); }, 250);
-        setTimeout(function() { weatherCheck(); }, 600000);
+        setTimeout(function() { updateWeather(); }, 250);
+        setInterval(function() { weatherCheck(); }, 600000);
 
         setTimeout(function() {
             $("#face").css('visibility', 'visible');
