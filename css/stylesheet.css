@@ -54,6 +54,11 @@ body {
     opacity: 1.0;
 }
 
+.git {
+    font-size: 15px;
+    line-height: 25px;
+}
+
 label{
     color: #42bdf3;
     display: inline-block;
@@ -61,6 +66,7 @@ label{
     clear: left;
     text-align: right;
     font-size: 25px;
+    line-height: 35px;
 }
 
 input[type=text] {
