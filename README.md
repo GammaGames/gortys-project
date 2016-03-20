@@ -1,7 +1,7 @@
 # gortys-project
 A webpage that displays current date, time, temperature, and a little message accompanied by Gortys' face! 
 
-![screenshot](http://url/to/img.png)
+![screenshot](https://raw.githubusercontent.com/GammaGames/gortys-project/master/readme/pic.png)
 
 Pretty rough and dirty, just done over a spring break for fun. 
 
