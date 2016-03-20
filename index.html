@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="scripts/jquery-2.1.1.min.js"></script>
+        <script src="scripts/utility.js"></script>
+        <script src="scripts/weather.js"></script>
+		<script src="scripts/gortys_faces.js"></script>
+		<script src="scripts/gortys_animations.js"></script>
+		<script src="scripts/gortys_text.js"></script>
+		<link rel="shortcut icon" href="images/favicon.ico">
+		<title>Gortys Project</title>
+	</head>	
+    
+<body>
+
+	<div class="content">
+        <div class="stats">
+            <div id="time">12:00 AM</div>
+            <div id="date">Thursday, January 1, 1970</div>
+            <div id="temp">0° F</div>
+        </div>
+        
+        <div id="face" class="face">
+            <div id="lEye" class="open">
+                <img src="images/eye_shadow.png">
+            </div>
+            <div id="mouth" class="blank">
+                <img src="images/mouth_shadow.png">            
+            </div>
+            <div id="rEye" class="open">
+                <img src="images/eye_shadow.png">            
+            </div>
+            
+	   </div>
+        
+        <div class="text">
+            <p id="line1" class='css-typing'></p>
+            <p id="line2" class='css-typing'></p>
+            <p id="line3" class='css-typing'></p>
+        </div>
+        <div style="visibility: hidden;">
+            <input type="button" value="Blank" onclick="setBlank()">
+            <input type="button" value="Neutral" onclick="setNeutral()">
+            <input type="button" value="Happy" onclick="setHappy()">
+            <input type="button" value="Surprise" onclick="setSurprise()">
+            <input type="button" value="Talk" onclick="setTalk()">
+            <input type="button" value="Whisper" onclick="setWhisper()">
+            <input type="button" value="Question" onclick="setQuestion()">
+            <input type="button" value="Sad" onclick="setSad()"></br>
+            <input type="button" value="Boot" onclick="showBoot()">
+            <input type="button" value="Welcome" onclick="playWelcome(timeOfDay, currentHours)">
+            <input type="button" value="Weather" onclick="playWeather(weather, temp)">
+            <input type="button" value="line1" onclick="animateLine1(timeOfDay, currentHours)">
+            <input type="button" value="line2" onclick="animateLine2(weather, temp, celsius)">
+            <input type="button" value="line3" onclick="animateLine3()">
+        </div>
+    </div>
+    
+    <input id="settingsButton" type="button" value="Settings" onclick='$(".settings").toggle()'>
+    
+    <div class="settings">
+        <input type="text" id="name" value="Sasha">
+            <label>name</label></br>
+        <input type="text" id="zip" value="46120">
+            <label><a href="http://www.geonames.org/postal-codes/" target="_blank">zip code</a></label></br>
+        <input type="text" id="country" value="es">
+            <label><a href = "https://countrycode.org/" target="_blank">country code</a></label></br>
+        <input type="checkbox" id="celsius" checked="true">
+            <label>Celsius?</label></br>
+        <input type="submit" value="Save Settings" onclick="saveSettings()">
+    </div>
+</body>
+
+<script type="text/javascript">
+
+    window.onload = function() {
+        $(".settings").toggle();
+        loadCookies();
+        
+        updateTimeDate();
+        setInterval(function() { updateTimeDate(); }, 1000);
+        
+        weatherCheck();
+        setInterval(function() { updateWeather(); }, 250);
+        setTimeout(function() { weatherCheck(); }, 600000);
+
+        setTimeout(function() {
+            $("#face").css('visibility', 'visible');
+            showBoot();
+        }, 500);
+        
+        setTimeout(function() { 
+            $("#face").css('visibility', 'visible');
+            showAnimation(timeOfDay, currentHours, weather, temp, celsius);
+        }, 2500);
+        setInterval(function() { showAnimation(timeOfDay, currentHours, weather, temp, celsius); }, 1800000);
+        setInterval(function() { playIdle(); }, 180000);
+    }
+
+</script>
+
+</html>
