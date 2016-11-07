@@ -82,8 +82,7 @@ function loadCookies() {
         
         loadSettings();
     }
-    else
-        saveCookies();
+	saveCookies();
 }
 
 function createCookie(name,value,days) {

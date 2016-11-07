@@ -1,5 +1,5 @@
 var textStr;
-var name = "Sasha";
+var name = "Jesse";
 
 function setName(str) {
     name = str;
